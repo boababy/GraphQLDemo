@@ -10,6 +10,8 @@ namespace GraphQLDemo.GraphQL.Types
             Field(x => x.Id).Description("Book id");
             Field(x => x.Title).Description("Book Title");
             Field(x => x.Author).Description("Book Author");
+            Field(x => x.Publisher).Description("Book Publisher");
+            Field(x => x.Price).Description("Book Price");
             Field(x => x.Description).Description("Book Description");
         }
     }

@@ -15,7 +15,7 @@ namespace GraphQLDemo.GraphQL.Mutations
             Description = "The root mutation for books.";
 
             Field<BookType>()
-                .Name("add") // mothod name
+                .Name("addBook") // mothod name
                 .Description("add book")
                 .Argument<NonNullGraphType<BookInputType>>("book")
                 .Resolve(context =>
@@ -26,7 +26,13 @@ namespace GraphQLDemo.GraphQL.Mutations
                         Id = repository.GetNextId(),
                         Title = bookInput.Title,
                         Author = bookInput.Author,
-                        Description = bookInput.Description
+                        Publisher = bookInput.Publisher,
+                        Price = bookInput.Price,
+                        Description = new Description
+                        {
+                            Detail = bookInput.Description?.Detail,
+                            RecommendedReason = bookInput.Description?.RecommendedReason
+                        }
                     };
 
                     repository.AddBook(newBook);
@@ -52,7 +58,10 @@ namespace GraphQLDemo.GraphQL.Mutations
 
                     existingBook.Title = bookInput.Title;
                     existingBook.Author = bookInput.Author;
-                    existingBook.Description = bookInput.Description;
+                    existingBook.Publisher = bookInput.Publisher;
+                    existingBook.Price = bookInput.Price;
+                    existingBook.Description.Detail = bookInput.Description?.Detail;
+                    existingBook.Description.RecommendedReason = bookInput.Description?.RecommendedReason;
 
                     repository.UpdateBook(id, existingBook);
                     return existingBook;

@@ -16,6 +16,7 @@ builder.Services.AddScoped<BookQuery>();
 builder.Services.AddScoped<BookType>();
 builder.Services.AddScoped<BookMutation>();
 builder.Services.AddScoped<BookInputType>();
+builder.Services.AddScoped<DescriptionInputType>();
 builder.Services.AddScoped<ISchema, BookSchema>();
 
 // GraphQL‚Ìİ’è

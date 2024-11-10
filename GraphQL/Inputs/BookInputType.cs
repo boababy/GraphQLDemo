@@ -9,7 +9,9 @@ namespace GraphQLDemo.GraphQL.Inputs
 
             Field<NonNullGraphType<StringGraphType>>("title").Description("The title of the book.");
             Field<NonNullGraphType<StringGraphType>>("Author").Description("The Author of the book.");
-            Field<NonNullGraphType<StringGraphType>>("Description").Description("The Description of the book.");
+            Field<NonNullGraphType<StringGraphType>>("Publisher").Description("The Publisher of the book.");
+            Field<NonNullGraphType<IntGraphType>>("Price").Description("The Price of the book.");
+            Field<NonNullGraphType<DescriptionInputType>>("Description").Description("The Description of the book.");
         }
     }
 }
